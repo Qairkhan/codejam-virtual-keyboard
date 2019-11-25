@@ -1,36 +1,165 @@
-#vInput {
-    width: 500px;
-    height: 30px;
-    padding-left: 10px;
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-#keyboard {
-    display: block;
-    /* border: 2px solid black; */
-    padding: 5px;
-}
-#keyboard::after {
-    content: "";
-    display: block;
-    clear: both;
+html,
+body {
+  height: 100%;
+  background: white;
 }
 
-.k-key {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-    margin: 3px;
-    padding: 3px;
-    float: left;
-    cursor: pointer;
+body {
+  font: 600 14px/24px "Open Sans", sans-serif;
+  text-align: center;
 }
 
-.clearfix {
-    display: block;
-    width: 100%;
-    clear: both;
+body textarea {
+  width: 100%;
+  min-height: 10vh;
+  border-width: 1px;
+  border-color:black;
+  font-size: 20px;
+  color: #000000;
+  padding: px;
+  background-color: white;
 }
 
-.active {
-    background: orange;
+.main {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 992px;
+  height: 100%;
+  padding: 25px 15px;
+}
+
+
+.keyboard {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 900px;
+  margin: auto;
+}
+
+.keyboard[data-case] .key_case {
+  display: none;
+}
+
+.keyboard[data-case="1"] [data-key="CapsLock"] {
+  -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+          transform: scale(1.25);
+   position: relative;
+}
+
+.keyboard[data-case="1"] [data-key="CapsLock"]:after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.keyboard[data-lang="ru"] .ru {
+  display: block;
+}
+
+.keyboard[data-lang="en"] .en {
+  display: block;
+}
+
+.keyboard[data-case="0"] .case_0 {
+  display: block;
+}
+
+.keyboard[data-case="1"] .case_1 {
+  display: block;
+}
+
+.keyboard[data-case="2"] .case_2 {
+  display: block;
+}
+
+
+.keyboard__row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.keyboard__key {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin: 3px;
+  padding: 3px;
+  float: left;
+  cursor: pointer;
+}
+
+.keyboard__key:active, .keyboard__key:focus, .keyboard__key--active {
+  -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+          transform: scale(1.25);
+ }
+
+ .keyboard__key_segment {
+  display: none;
+}
+
+.keyboard__key_space {
+  -webkit-flex-basis: 33%;
+      -ms-flex-preferred-size: 33%;
+          flex-basis: 33%;
+}
+
+.keyboard__key_tab, .keyboard__key_controlright, .keyboard__key_controlleft {
+  -webkit-box-flex: 3;
+  -webkit-flex-grow: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+}
+
+.keyboard__key_backspace {
+  -webkit-box-flex: 4;
+  -webkit-flex-grow: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
 }
